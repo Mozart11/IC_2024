@@ -2,22 +2,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
  
-with open("../datasets/t10k-images.idx3-ubyte", "rb") as f:  # Imagens do conjunto de teste MNIST
-   magic_number = int.from_bytes(f.read(4), 'big')  # Metadados
-   num_images = int.from_bytes(f.read(4), 'big') 
-   num_rows = int.from_bytes(f.read(4), 'big') # 28
-   num_cols = int.from_bytes(f.read(4), 'big') # 28 > 1 imagem
-   
-   hexs_b = (f.read()) # Retorna uma lista de binarios
-   pixels = np.frombuffer(hexs_b, dtype=np.uint8) # Transforma a sequencia de bits conforme o dtype, 
-   pixels_reshape = pixels.reshape(num_images, num_rows, num_cols) # Unsigned_8 = Pixel Format = 0 a 255 valores
+def openDatasets(path, c):  # path e tipo de conjunto (train,val ou test)
+    with open("../datasets/" + path, "rb") as f:
+        bins = f.read()
+        pixels = np.frombuffer(bins, dtype=np.uint8)
+        pixels_reshape = pixels.reshape(c, 28, 28)
+        return(pixels_reshape)
 
-   plt.imshow(pixels_reshape[0], cmap='gray')  # plt para plotar imagem
-   # plt.show()
+test_validation_shape0 = 14000
+train_shape0 = 42000
 
+pixels = openDatasets("train.bin", train_shape0)
 
 # img = cv2.imread("maca.jpg",0) # << ler em byte
-img = pixels_reshape[0]
+img = pixels[7]
 img = img / 255  # Porque ? > Normaliza os valores entre 0 e 1
 x,y = img.shape
 psnr = float(input("PSNR: "))
@@ -42,6 +40,8 @@ def find_variance(img,target_psnr):
 sigma = find_variance(img,psnr)
 noise = gen_gaussia_noise(sigma,x,y)
 corrupt_img = add_noise(noise,img)
+
+#corrupt_img = corrupt_img.astype(np.uint8)
 
 cv2.imshow("original image",img)
 cv2.imshow("gaussian noise",noise)   # Porque preto e branco ?
