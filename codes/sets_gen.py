@@ -3,6 +3,8 @@ import numpy as np
  
 np.random.seed(333)
 
+# Dados
+
 def openDatasetsMnist(path):
     with open("../datasets/"+ path, "rb") as f:  # Imagens do conjunto de teste MNIST
         magic_number = int.from_bytes(f.read(4), 'big')  # Metadados (tem que comer os magic_number)
@@ -56,7 +58,7 @@ pixels_sem_ruido_validation = pixels_sem_ruido_total_MNIST[indices_aleatorios_va
 with open("../datasets/validation.bin", "wb") as arquivo:
     arquivo.write(pixels_sem_ruido_validation)
 # -------------------------------------------------------------------------------------------
-# Conjunto Treino (80%)
+# Conjunto Treino (60%)
 
 #indices_treino_validation = np.stack((indices_aleatorios_validation, indices_aleatorios_teste)).reshape(-1)
 
@@ -66,10 +68,40 @@ pixels_sem_ruido_train = pixels_sem_ruido_total_MNIST[indices_aleatorios_train]
 with open("../datasets/train.bin", "wb") as arquivo:
     arquivo.write(pixels_sem_ruido_train)
 # -------------------------------------------------------------------------------------------
+# Plot testes
 
-plt.imshow(pixels_sem_ruido_train[7], cmap='gray')  # plt para plotar imagem
-plt.show()
-plt.imshow(pixels_sem_ruido_total_MNIST[17], cmap='gray')  # plt para plotar imagem
-plt.show()
+#plt.imshow(pixels_sem_ruido_train[7], cmap='gray')  # plt para plotar imagem
+#plt.show()
+#plt.imshow(pixels_sem_ruido_total_MNIST[17], cmap='gray')  # plt para plotar imagem
+#plt.show()
 #plt.imshow(pixels_sem_ruido_restante[4], cmap='gray')  # plt para plotar imagem
 #plt.show()
+
+# ---------------------------------------------------------------------------------------------
+# Labels 
+with open("../datasets/t10k-labels.idx1-ubyte" , "rb") as f:
+    magic_numbers = int.from_bytes(f.read(4), "big")
+    num_labels = int.from_bytes(f.read(4), "big")
+    bins = f.read()
+    labels_01 = np.frombuffer(bins, dtype=np.uint8)
+
+with open("../datasets/train-labels.idx1-ubyte" , "rb") as f:
+    magic_numbers = int.from_bytes(f.read(4), "big")
+    num_labels = int.from_bytes(f.read(4), "big")
+    bins = f.read()
+    labels_02 = np.frombuffer(bins, dtype=np.uint8)
+
+labels_totais = np.concatenate((labels_01,labels_02), axis=0)
+
+labels_test = labels_totais[indices_aleatorios_teste]
+labels_validation = labels_totais[indices_aleatorios_validation]
+labels_train = labels_totais[indices_aleatorios_train]
+
+with open("../datasets/test_labels.bin", "wb") as f:
+    f.write(labels_test)
+with open("../datasets/train_labels.bin", "wb") as f:
+    f.write(labels_train)
+with open("../datasets/validation_labels.bin", "wb") as f:
+    f.write(labels_validation)
+    
+print("f")
