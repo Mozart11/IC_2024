@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-from sets_gen_noise import find_variance, gen_gaussia_noise, add_noise, openDatasets, openDatasets_f
+from codes.sets_gen_noise import find_variance, gen_gaussia_noise, add_noise, openDatasets, openDatasets_f
 
 np.random.seed(333)
 

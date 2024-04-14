@@ -1,0 +1,63 @@
+KNN com K=5 (Conjunto de Treino: Sem Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 3.642857142857143 %
+
+KNN com K=5 (Conjunto de Treino: Sem Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 4.135714285714285 %
+
+KNN com K=5 (Conjunto de Treino: Com Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 5.050000000000001 %
+
+KNN com K=5 (Conjunto de Treino: Com Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 6.521428571428571 %
+
+--------------------------------------------------------------------------------
+
+SVM (Conjunto de Treino FULL: Sem Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 8.864285714285716 %
+
+SVM (Conjunto de Treino FULL: Sem Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [4 5 5 ... 9 5 5]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 62.121428571428574 %
+
+SVM (Conjunto de Treino FULL: Com Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 10.414285714285715 %
+
+SVM (Conjunto de Treino: Com Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 13.82857142857143 %
+
+-------------------------------------------------------------------------------
+
+Tree (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 12.542857142857141 %
+
+Tree (Conjunto de Treino: Sem Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [8 2 8 ... 5 8 6]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 73.86428571428571 %
+
+Tree (Conjunto de Treino: Com Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 3 5 ... 9 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 19.72142857142857 %
+
+Tree (Conjunto de Treino: Com Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [9 8 9 ... 9 1 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 36.971428571428575 %

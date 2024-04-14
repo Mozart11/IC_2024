@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Adicionar o diretório atual ao PYTHONPATH
+cwd = os.getcwd() + "/.."
+sys.path.append(cwd)
+
 import numpy as np
 from sets_gen_noise import openDatasets, openDatasets_f, openDatasets_l
 

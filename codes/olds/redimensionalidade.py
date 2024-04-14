@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.decomposition import PCA
-from sets_gen_noise import openDatasets, openDatasets_l
+from codes.sets_gen_noise import openDatasets, openDatasets_l
 
 train_shape0 = 42000
 

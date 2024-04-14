@@ -6,7 +6,7 @@ np.random.seed(333)
 # Dados
 
 def openDatasetsMnist(path):
-    with open("../datasets/"+ path, "rb") as f:  # Imagens do conjunto de teste MNIST
+    with open("../../datasets/"+ path, "rb") as f:  # Imagens do conjunto de teste MNIST
         magic_number = int.from_bytes(f.read(4), 'big')  # Metadados (tem que comer os magic_number)
         num_images = int.from_bytes(f.read(4), 'big') 
         num_rows = int.from_bytes(f.read(4), 'big') # 28
@@ -44,6 +44,11 @@ with open("../datasets/test.bin", "wb") as arquivo:
 # Indices Restantes
 
 indices_restantes = np.setdiff1d(todos_os_indices, indices_aleatorios_teste)
+
+pixels_sem_ruido_train_and_validation = pixels_sem_ruido_total_MNIST[indices_restantes]
+
+with open("../datasets/train_and_validation.bin", "wb") as arquivo:
+    arquivo.write(pixels_sem_ruido_train_and_validation)
 
 # -------------------------------------------------------------------------------------------
 # Conjunto de validação (20%)
@@ -94,11 +99,14 @@ with open("../datasets/train-labels.idx1-ubyte" , "rb") as f:
 labels_totais = np.concatenate((labels_01,labels_02), axis=0)
 
 labels_test = labels_totais[indices_aleatorios_teste]
+labels_train_and_validation = labels_totais[indices_restantes]
 labels_validation = labels_totais[indices_aleatorios_validation]
 labels_train = labels_totais[indices_aleatorios_train]
 
 with open("../datasets/test_labels.bin", "wb") as f:
     f.write(labels_test)
+with open("../datasets/train_and_validation_labels.bin", "wb") as f:
+    f.write(labels_train_and_validation)
 with open("../datasets/train_labels.bin", "wb") as f:
     f.write(labels_train)
 with open("../datasets/validation_labels.bin", "wb") as f:
