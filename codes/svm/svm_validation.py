@@ -5,9 +5,8 @@ import os
 cwd = os.getcwd() + "/.."
 sys.path.append(cwd)
 
-from sklearn.datasets import load_iris
-from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
 from sklearn.svm import LinearSVC
 import matplotlib.pyplot as plt
 import numpy as np
