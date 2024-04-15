@@ -1,0 +1,62 @@
+KNN com K=1 (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 2.8857142857142857 %
+
+KNN com K=1 (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 3.4571428571428573 %
+
+KNN com K=6 (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Sem Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 4.314285714285714 %
+
+KNN com K=6 (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Com Ruido)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 6.507142857142857 %
+
+--------------------------------------------------------------------------------
+SVM (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Sem Ruido) (C = 0.17787658410143284, class_weight = "balanced")
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 8.771428571428572 %
+
+SVM (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Com Ruido) (C = 0.17787658410143284, class_weight = "balanced")
+Predicts: [4 5 5 ... 7 5 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 37.6 %
+
+SVM (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Sem Ruido) (C = 0.17787658410143284, class_weight = "balanced")
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 10.414285714285715 %
+
+SVM (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Com Ruido) (C = 0.17787658410143284, class_weight = "balanced")
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 13.82857142857143 %
+
+-------------------------------------------------------------------------------
+
+Tree (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Sem Ruido) (max_depth = 17 e min_samples_leaf=4)
+Predicts: [4 2 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 12.928571428571429 %
+
+Tree (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Com Ruido) (max_depth = 17 e min_samples_leaf=4)
+Predicts: [8 2 8 ... 5 8 6]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 72.64285714285714 %
+
+Tree (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Sem Ruido) (max_depth = 17 e min_samples_leaf=4)
+Predicts: [4 0 5 ... 7 7 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 19.84285714285714 %
+
+Tree (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Com Ruido) (max_depth = 17 e min_samples_leaf=4)
+Predicts: [9 8 0 ... 9 8 7]
+Valores Esperados: [4 2 5 ... 7 7 7]
+Taxa de erro: 36.84285714285714 %
