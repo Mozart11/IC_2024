@@ -52,7 +52,7 @@ knn_com_ruido.fit(X,train_and_validation_labels)
 # Rodando os modelos nos conjuntos de teste
 
 #  Sem ruido train, sem ruido test
-print("KNN com K=5 (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Sem Ruido)")
+print("KNN com K=1 (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Sem Ruido)")
 X = pixels_sem_ruido_test/255
 X = X.reshape(pixels_sem_ruido_test.shape[0], -1)
 knn_sem_ruido_predicts_1 = knn_sem_ruido.predict(X)
@@ -80,7 +80,7 @@ plt.show()
 
 # ------------------------------------------------------------------------------------
 # Test sem ruido train, com ruido test
-print("KNN com K=5 (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Com Ruido)")
+print("KNN com K=1 (Conjunto de Treino Full: Sem Ruido) (Conjunto de Teste: Com Ruido)")
 X = pixels_com_ruido_test
 X = X.reshape(pixels_com_ruido_test.shape[0], -1)
 knn_sem_ruido_predicts_2 = knn_sem_ruido.predict(X)
@@ -94,7 +94,7 @@ print("Taxa de erro:", taxa_erro_knn_sem_ruido_2, "%\n")
 
 # ------------------------------------------------------------------------------------
 # Test com ruido train, sem ruido test
-print("KNN com K=5 (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Sem Ruido)")
+print("KNN com K=6 (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Sem Ruido)")
 X = pixels_sem_ruido_test/255
 X = X.reshape(pixels_sem_ruido_test.shape[0], -1)
 knn_com_ruido_predicts_1 = knn_com_ruido.predict(X)
@@ -108,7 +108,7 @@ print("Taxa de erro:", taxa_erro_knn_com_ruido_1, "%\n")
 
 # ------------------------------------------------------------------------------------
 # Test com ruido train, sem ruido test
-print("KNN com K=5 (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Com Ruido)")
+print("KNN com K=6 (Conjunto de Treino Full: Com Ruido) (Conjunto de Teste: Com Ruido)")
 X = pixels_com_ruido_test
 X = X.reshape(pixels_com_ruido_test.shape[0], -1)
 knn_com_ruido_predicts_2 = knn_com_ruido.predict(X)
