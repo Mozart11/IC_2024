@@ -1,12 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
- 
+import os 
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
 np.random.seed(333)
 
 # Dados
 
 def openDatasetsMnist(path):
-    with open("../../datasets/"+ path, "rb") as f:  # Imagens do conjunto de teste MNIST
+    with open(current_dir + "/../MNIST_datasets/"+ path, "rb") as f:  # Imagens do conjunto de teste MNIST
         magic_number = int.from_bytes(f.read(4), 'big')  # Metadados (tem que comer os magic_number)
         num_images = int.from_bytes(f.read(4), 'big') 
         num_rows = int.from_bytes(f.read(4), 'big') # 28
@@ -37,7 +39,7 @@ indices_aleatorios_teste = np.random.choice(pixels_sem_ruido_total_MNIST.shape[0
 
 pixels_sem_ruido_teste = pixels_sem_ruido_total_MNIST[indices_aleatorios_teste]
 
-with open("../datasets/test.bin", "wb") as arquivo:
+with open(current_dir + "/../MNIST_datasets/test.bin", "wb") as arquivo:
     arquivo.write(pixels_sem_ruido_teste)
 
 # -------------------------------------------------------------------------------------------
@@ -47,7 +49,7 @@ indices_restantes = np.setdiff1d(todos_os_indices, indices_aleatorios_teste)
 
 pixels_sem_ruido_train_and_validation = pixels_sem_ruido_total_MNIST[indices_restantes]
 
-with open("../datasets/train_and_validation.bin", "wb") as arquivo:
+with open(current_dir + "/../MNIST_datasets/train_and_validation.bin", "wb") as arquivo:
     arquivo.write(pixels_sem_ruido_train_and_validation)
 
 # -------------------------------------------------------------------------------------------
@@ -60,7 +62,7 @@ indices_aleatorios_validation = np.random.choice(indices_restantes, int(npixels_
 
 pixels_sem_ruido_validation = pixels_sem_ruido_total_MNIST[indices_aleatorios_validation]
 
-with open("../datasets/validation.bin", "wb") as arquivo:
+with open(current_dir + "/../MNIST_datasets/validation.bin", "wb") as arquivo:
     arquivo.write(pixels_sem_ruido_validation)
 # -------------------------------------------------------------------------------------------
 # Conjunto Treino (60%)
@@ -70,7 +72,7 @@ with open("../datasets/validation.bin", "wb") as arquivo:
 indices_aleatorios_train = np.setdiff1d(indices_restantes, indices_aleatorios_validation)
 pixels_sem_ruido_train = pixels_sem_ruido_total_MNIST[indices_aleatorios_train]
 
-with open("../datasets/train.bin", "wb") as arquivo:
+with open(current_dir + "/../MNIST_datasets/train.bin", "wb") as arquivo:
     arquivo.write(pixels_sem_ruido_train)
 # -------------------------------------------------------------------------------------------
 # Plot testes
@@ -84,13 +86,13 @@ with open("../datasets/train.bin", "wb") as arquivo:
 
 # ---------------------------------------------------------------------------------------------
 # Labels 
-with open("../datasets/t10k-labels.idx1-ubyte" , "rb") as f:
+with open(current_dir + "/../MNIST_datasets/t10k-labels.idx1-ubyte" , "rb") as f:
     magic_numbers = int.from_bytes(f.read(4), "big")
     num_labels = int.from_bytes(f.read(4), "big")
     bins = f.read()
     labels_01 = np.frombuffer(bins, dtype=np.uint8)
 
-with open("../datasets/train-labels.idx1-ubyte" , "rb") as f:
+with open(current_dir + "/../MNIST_datasets/train-labels.idx1-ubyte" , "rb") as f:
     magic_numbers = int.from_bytes(f.read(4), "big")
     num_labels = int.from_bytes(f.read(4), "big")
     bins = f.read()
@@ -103,13 +105,13 @@ labels_train_and_validation = labels_totais[indices_restantes]
 labels_validation = labels_totais[indices_aleatorios_validation]
 labels_train = labels_totais[indices_aleatorios_train]
 
-with open("../datasets/test_labels.bin", "wb") as f:
+with open(current_dir + "/../MNIST_datasets/test_labels.bin", "wb") as f:
     f.write(labels_test)
-with open("../datasets/train_and_validation_labels.bin", "wb") as f:
+with open(current_dir + "/../MNIST_datasets/train_and_validation_labels.bin", "wb") as f:
     f.write(labels_train_and_validation)
-with open("../datasets/train_labels.bin", "wb") as f:
+with open(current_dir + "/../MNIST_datasets/train_labels.bin", "wb") as f:
     f.write(labels_train)
-with open("../datasets/validation_labels.bin", "wb") as f:
+with open(current_dir +"/../MNIST_datasets/validation_labels.bin", "wb") as f:
     f.write(labels_validation)
     
 print("f")
