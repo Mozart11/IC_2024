@@ -1,4 +1,4 @@
-## IC_2024
+## Trabalho_01 de IC
 
 ### MNIST simulations
 Os códigos relacionados ao MNIST, estão na pasta *MNIST_codes*.
