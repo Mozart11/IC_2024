@@ -1,3 +1,6 @@
+Trabalho_Final/mitsubas/*
+!Trabalho_Final/mitsubas/.gitkeep
+Trabalho_Final/utils/__pycache__
 .vscode
 teste.py
 *.bin
